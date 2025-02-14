@@ -1,39 +1,51 @@
 <form class="expense-form">
-  <label class="expense-form__label" for="description">Descrição do gasto</label>
-  <input
-    name="description"
-    class="expense-form__input"
-    type="text"
-    placeholder="Dê uma descrição ao gasto"
-    [(ngModel)]="expense.description"
-  />
+  <div style="display: flex; justify-content: space-between; width: 65%;">
+    <div style="display: flex; flex-direction: column;">
+      <label class="expense-form__label" for="description">Descrição do gasto</label>
+      <input
+        name="description"
+        class="expense-form__input description"
+        type="text"
+        placeholder="Dê uma descrição ao gasto"
+        [(ngModel)]="expense.description"
+      />
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <label class="expense-form__label" for="spent-type">Tipo do gasto</label>
+      <select
+        name="spent-type"
+        class="expense-form__input spent-type"
+        type="text"
+        [(ngModel)]="expense.type"
+      >
+        <option *ngFor="let type of expenseType" [value]="type">{{type}}</option>
+      </select>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: space-between; width: 90.2%;">
+    <div style="display: flex; flex-direction: column;">
+      <label class="expense-form__label" for="cost">Valor</label>
+      <input
+        name="cost"
+        class="expense-form__input cost"
+        type="number"
+        placeholder="Digite o valor da conta"
+        [(ngModel)]="expense.value"
+      />
+    </div>
 
-  <label class="expense-form__label" for="cost">Valor</label>
-  <input
-    name="cost"
-    class="expense-form__input"
-    type="number"
-    placeholder="Digite o valor da conta"
-    [(ngModel)]="expense.value"
-  />
+    <div style="display: flex; flex-direction: column;">
+      <label class="expense-form__label"  for="due-date">Vencimento</label>
+      <input
+        name="due-date"
+        class="expense-form__input due-date"
+        type="text"
+        placeholder="Informe a data de vencimento"
+        [(ngModel)]="expense.date"
+      />
+    </div>
 
-  <label class="expense-form__label"  for="due-date">Vencimento</label>
-  <input
-    name="due-date"
-    class="expense-form__input"
-    type="text"
-    placeholder="Informe a data de vencimento"
-    [(ngModel)]="expense.date"
-  />
+  </div>
 
-  <label class="expense-form__label" for="spent-type">Tipo do gasto</label>
-  <input
-    name="spent-type"
-    class="expense-form__input"
-    type="text"
-    placeholder="Informe o tipo da conta"
-    [(ngModel)]="expense.type"
-  />
-
-  <button class="expense-form__button" type="submit" (click)="saveExpense(expense)">Salvar</button>
+  <button class="expense-form__button" type="submit" (click)="saveExpense()">Salvar</button>
 </form>
