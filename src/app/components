@@ -1,9 +1,0 @@
-<script>start("c:\\Users\\ips_v\\Desktop\\Angular\\fogo-cruzado\\fogo-cruzado\\src\\app\\components\\");</script>
-<script>onHasParentDirectory();</script>
-<script>addRow("card-amount","card-amount",1,0,"0 B",1738886763,"2/6/25, 9:06:03 PM");</script>
-<script>addRow("expense","expense",1,0,"0 B",1738727629,"2/5/25, 12:53:49 AM");</script>
-<script>addRow("expense-container","expense-container",1,0,"0 B",1738888315,"2/6/25, 9:31:55 PM");</script>
-<script>addRow("expense-form","expense-form",1,0,"0 B",1738799687,"2/5/25, 8:54:47 PM");</script>
-<script>addRow("expense-header","expense-header",1,0,"0 B",1738888281,"2/6/25, 9:31:21 PM");</script>
-<script>addRow("expense-list","expense-list",1,0,"0 B",1738729304,"2/5/25, 1:21:44 AM");</script>
-<script>addRow("components.module.ts","components.module.ts",0,1521,"1.5 kB",1738888509,"2/6/25, 9:35:09 PM");</script>

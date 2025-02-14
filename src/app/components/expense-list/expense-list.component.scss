@@ -1,0 +1,29 @@
+.expense-list{
+  width: 450px;
+  margin: 0 auto;
+  background-color: cadetblue;
+  padding: 10px 12px;
+
+  &__header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+
+  }
+  &__title{
+    font-size: 14px;
+    &--preffix{
+      font-size: 12px;
+    }
+
+    &:first-child{
+      border-right: 2px solid;
+      padding-right: 12px;
+    }
+    &:last-child{
+      border-left: 2px solid;
+      padding-left: 12px;
+    }
+  }
+}

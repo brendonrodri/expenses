@@ -1,0 +1,39 @@
+<form class="expense-form">
+  <label class="expense-form__label" for="description">Descrição do gasto</label>
+  <input
+    name="description"
+    class="expense-form__input"
+    type="text"
+    placeholder="Dê uma descrição ao gasto"
+    [(ngModel)]="expense.description"
+  />
+
+  <label class="expense-form__label" for="cost">Valor</label>
+  <input
+    name="cost"
+    class="expense-form__input"
+    type="number"
+    placeholder="Digite o valor da conta"
+    [(ngModel)]="expense.value"
+  />
+
+  <label class="expense-form__label"  for="due-date">Vencimento</label>
+  <input
+    name="due-date"
+    class="expense-form__input"
+    type="text"
+    placeholder="Informe a data de vencimento"
+    [(ngModel)]="expense.date"
+  />
+
+  <label class="expense-form__label" for="spent-type">Tipo do gasto</label>
+  <input
+    name="spent-type"
+    class="expense-form__input"
+    type="text"
+    placeholder="Informe o tipo da conta"
+    [(ngModel)]="expense.type"
+  />
+
+  <button class="expense-form__button" type="submit" (click)="saveExpense(expense)">Salvar</button>
+</form>

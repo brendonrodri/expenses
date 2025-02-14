@@ -1,0 +1,35 @@
+.expense-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 95%;
+  height: fit-content;
+  padding: 6px;
+  padding-left: 14px;
+
+  .expense-form__label{
+    font-size: 14px;
+    margin: 2px 0px;
+  }
+  .expense-form__input{
+    width: 70%;
+    padding-left: 3px;
+    margin-bottom: 2px;
+    border: none;
+    border-radius: 3px;
+    height: 25px;
+    font-size: 12px;
+
+    &:focus-visible{
+      outline: none
+    }
+  }
+  .expense-form__button{
+    width: 73px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    margin: 6px auto;
+  }
+}
