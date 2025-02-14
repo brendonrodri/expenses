@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ExpenseService } from './services/expense-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'expenses';
+  constructor(private expenseService: ExpenseService){
+    this.expenseService.updateInitialAmount(2515)
+  }
 }
