@@ -1,4 +1,8 @@
-<form class="expense-form">
+<form
+  class="expense-form"
+  [formGroup]="expenseFormGroup"
+  (ngSubmit)="saveExpense()"
+>
   <div style="display: flex; justify-content: space-between; width: 65%;">
     <div style="display: flex; flex-direction: column;">
       <label class="expense-form__label" for="description">Descrição do gasto</label>
@@ -7,7 +11,7 @@
         class="expense-form__input description"
         type="text"
         placeholder="Dê uma descrição ao gasto"
-        [(ngModel)]="expense.description"
+        formControlName="description"
       />
     </div>
     <div style="display: flex; flex-direction: column;">
@@ -16,7 +20,7 @@
         name="spent-type"
         class="expense-form__input spent-type"
         type="text"
-        [(ngModel)]="expense.type"
+        formControlName="expenseType"
       >
         <option *ngFor="let type of expenseType" [value]="type">{{type}}</option>
       </select>
@@ -30,7 +34,7 @@
         class="expense-form__input cost"
         type="number"
         placeholder="Digite o valor da conta"
-        [(ngModel)]="expense.value"
+        formControlName="cost"
       />
     </div>
 
@@ -41,11 +45,18 @@
         class="expense-form__input due-date"
         type="text"
         placeholder="Informe a data de vencimento"
-        [(ngModel)]="expense.date"
+        formControlName="dueDate"
       />
     </div>
 
   </div>
 
-  <button class="expense-form__button" type="submit" (click)="saveExpense()">Salvar</button>
+  <button
+    class="expense-form__button"
+    type="submit"
+    (click)="saveExpense()"
+    [disabled]="!expenseFormGroup.valid"
+  >
+      Salvar
+  </button>
 </form>

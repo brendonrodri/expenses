@@ -1,6 +1,6 @@
 export interface IExpense {
   description: string,
-  value:  number,
-  type: string,
-  date: string,
+  cost:  number,
+  dueDate: string,
+  expenseType: string,
 }

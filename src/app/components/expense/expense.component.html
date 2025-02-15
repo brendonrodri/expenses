@@ -1,10 +1,10 @@
 <div class="expense-card">
   <header class="expense-card__header">
     <h3 class="expense-card__header--description">{{expense.description}}</h3>
-    <span class="expense-card__header--type">{{expense.type}}</span>
+    <span class="expense-card__header--type">{{expense.expenseType}}</span>
   </header>
   <section class="expense-card__infos">
-    <p class="expense-card__infos--value">R$ {{expense.value}},00</p>
-    <p class="expense-card__infos--date">{{expense.date}}</p>
+    <p class="expense-card__infos--value">R$ {{expense.cost}},00</p>
+    <p class="expense-card__infos--date">{{expense.dueDate}}</p>
   </section>
 </div>
