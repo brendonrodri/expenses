@@ -9,16 +9,17 @@ import { ExpenseFormComponent } from "./expense-form/expense-form.component";
 import { CardAmountComponent } from './card-amount/card-amount.component';
 import { ExpenseHeaderComponent } from './expense-header/expense-header.component';
 import { ExpenseContainerComponent } from './expense-container/expense-container.component';
+import { InvalidFormComponent } from "./invalid-form/invalid-form.component";
 
 @NgModule({
     declarations: [
-
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseFormComponent,
     CardAmountComponent,
     ExpenseHeaderComponent,
-    ExpenseContainerComponent
+    ExpenseContainerComponent,
+    InvalidFormComponent
   ],
     imports: [
       ReactiveFormsModule,
@@ -31,7 +32,8 @@ import { ExpenseContainerComponent } from './expense-container/expense-container
       ExpenseFormComponent,
       CardAmountComponent,
       ExpenseHeaderComponent,
-      ExpenseContainerComponent
+      ExpenseContainerComponent,
+      InvalidFormComponent
     ],
     providers: [HttpClient]
 })

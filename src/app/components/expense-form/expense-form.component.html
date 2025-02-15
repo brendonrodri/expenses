@@ -3,7 +3,7 @@
   [formGroup]="expenseFormGroup"
   (ngSubmit)="saveExpense()"
 >
-  <div style="display: flex; justify-content: space-between; width: 65%;">
+  <div style="display: flex; justify-content: space-between; width: 65.4%; height: 78px;">
     <div style="display: flex; flex-direction: column;">
       <label class="expense-form__label" for="description">Descrição do gasto</label>
       <input
@@ -13,6 +13,7 @@
         placeholder="Dê uma descrição ao gasto"
         formControlName="description"
       />
+      <app-invalid-form *ngIf="isDateInformed('description')" [errorMessage]="'Informe a descrição do gasto'"></app-invalid-form>
     </div>
     <div style="display: flex; flex-direction: column;">
       <label class="expense-form__label" for="spent-type">Tipo do gasto</label>
@@ -24,9 +25,10 @@
       >
         <option *ngFor="let type of expenseType" [value]="type">{{type}}</option>
       </select>
+      <app-invalid-form *ngIf="isDateInformed('expenseType')" [errorMessage]="'Informe o tipo do gasto'"></app-invalid-form>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; width: 90.2%;">
+  <div style="display: flex; justify-content: space-between; width: 90.2%; height: 78px;">
     <div style="display: flex; flex-direction: column;">
       <label class="expense-form__label" for="cost">Valor</label>
       <input
@@ -36,6 +38,7 @@
         placeholder="Digite o valor da conta"
         formControlName="cost"
       />
+      <app-invalid-form *ngIf="isDateInformed('cost')" [errorMessage]="'Informe o valor do gasto'"></app-invalid-form>
     </div>
 
     <div style="display: flex; flex-direction: column;">
@@ -47,6 +50,7 @@
         placeholder="Informe a data de vencimento"
         formControlName="dueDate"
       />
+      <app-invalid-form *ngIf="isDateInformed('dueDate')" [errorMessage]="'Informe a data de vencimento'"></app-invalid-form>
     </div>
 
   </div>
