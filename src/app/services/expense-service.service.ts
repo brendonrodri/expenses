@@ -27,22 +27,31 @@ export class ExpenseService {
 
   private expenseList: BehaviorSubject<IExpense[]> = new BehaviorSubject<IExpense[]>([]);
   public expenseList$: Observable<IExpense[]> = this.expenseList.asObservable();
-  get expenseListParsed(): IExpense[]{
-    let newList: IExpense[] = [];
-    const oldList = this.expenseList$.subscribe((item)=>{
-      newList = item;
-    })
-    return newList;
+
+  get expenseListParsed(): IExpense[] {
+    return this.expenseList.getValue();
   }
 
   public updateExpenseList(expenseList: IExpense[]): void{
     this.expenseList.next(expenseList);
+    this.updateAmounts(expenseList);
   }
 
   public createNewExpense(expense: IExpense){
     const expenseList = this.expenseListParsed.concat(expense);
-
     this.updateExpenseList(expenseList);
-
   }
+
+  private reduceExpensesValues(expenseList: IExpense[]): number {
+    return expenseList.reduce((accumulator: number, expense: IExpense) => {
+      return expense.cost !== null ? accumulator + expense.cost : accumulator;
+    }, 0);
+  }
+
+  private updateAmounts(expenseList: IExpense[]){
+    const reduceValues = this.reduceExpensesValues(expenseList);
+    this.updateTotalExpenses(reduceValues)
+    this.initialAmount$.subscribe((value)=> this.updateEconomies(value - reduceValues));
+  }
+
 }

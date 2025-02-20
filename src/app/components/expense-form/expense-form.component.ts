@@ -3,6 +3,7 @@ import { IExpense } from '../expense/expense.interface';
 import { ExpenseService } from 'src/app/services/expense-service.service';
 import { EExpenseType } from './expense-type.enum';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-expense-form',
@@ -11,9 +12,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ExpenseFormComponent {
   @Output() expenseEmitt: EventEmitter<IExpense> = new EventEmitter<IExpense>()
-  protected expense: IExpense = {} as IExpense;
-  protected expenseType = [EExpenseType.gas, EExpenseType.internet, EExpenseType.luz, EExpenseType.outros];
-
   protected expenseFormGroup: FormGroup = new FormGroup({
     description: new FormControl('', Validators.required),
     cost: new FormControl('', Validators.required),
@@ -21,9 +19,11 @@ export class ExpenseFormComponent {
     expenseType: new FormControl('', Validators.required),
   });
 
-  private formIsValid: boolean = this.expenseFormGroup.valid;
 
-  constructor(private expenseService: ExpenseService) { }
+  protected expenseType = [EExpenseType.gas, EExpenseType.internet, EExpenseType.luz, EExpenseType.outros];
+  private formIsValid!: boolean;
+
+  constructor(private expenseService: ExpenseService, private apiService: ApiService) { }
 
   protected isDateInformed(controlName: string){
     return this.expenseFormGroup.controls[controlName].errors &&
@@ -31,19 +31,18 @@ export class ExpenseFormComponent {
   }
 
   saveExpense(){
+   this.formIsValid = this.expenseFormGroup.valid;
     if(this.formIsValid){
-      this.expenseFormGroup.valueChanges.subscribe((expenseSubmited)=>{
-        this.expense = {
-          description: expenseSubmited.description,
-          cost: expenseSubmited.cost,
-          dueDate: expenseSubmited.dueDate,
-          expenseType: expenseSubmited.expenseType
-        }
-      })
-      this.expenseService.createNewExpense(this.expense);
-      this.expenseEmitt.emit(this.expense);
-
+      const expense = this.expenseFormGroup.value;
+      this.expenseService.createNewExpense(expense);
+      this.apiService.sendApi(this.expenseService.expenseListParsed);
     }
+
     this.expenseFormGroup.reset();
+
   }
+
+
+
+
 }
