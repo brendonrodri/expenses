@@ -1,0 +1,30 @@
+.app{
+  display: grid;
+  grid-template-columns: 1fr; /* Primeira linha ocupa 100% da largura */
+  grid-template-rows: auto auto; /* Duas linhas */
+  grid-template-areas:
+      "item1"
+      "item2 item3"; /* Definindo a segunda linha com dois itens */
+  gap: 10px; /* Espaçamento entre os itens */
+
+}
+
+.item1 {
+  height: 15vh;
+  grid-area: item1;
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.item2 {
+  width: 300px;
+  grid-area: item2;
+  background-color: lightgreen;
+  padding: 20px;
+}
+
+.item3 {
+  grid-area: item3;
+  background-color: lightcoral;
+  padding: 20px;
+}

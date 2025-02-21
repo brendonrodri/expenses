@@ -1,10 +1,17 @@
 <div class="expense-card">
-  <header class="expense-card__header">
-    <h3 class="expense-card__header--description">{{expense.description}}</h3>
-    <span class="expense-card__header--type">{{expense.expenseType}}</span>
-  </header>
   <section class="expense-card__infos">
-    <p class="expense-card__infos--value">R$ {{expense.cost}},00</p>
-    <p class="expense-card__infos--date">{{expense.dueDate}}</p>
+    <div class="expense-card__infos--icon-container">
+      <span class="expense-card__infos--icon-circle"> </span>
+    </div>
+   <div class="expense-card__infos--text-container">
+      <span class="expense-card__infos--type">{{expense.expenseType}}</span>
+      <p class="expense-card__infos--date">{{expense.dueDate}}</p>
+   </div>
+
+  <div class="expense-card__infos--cost-container">
+    <p class="expense-card__infos--value">-R${{expense.cost}},00</p>
+  </div>
+
   </section>
+
 </div>

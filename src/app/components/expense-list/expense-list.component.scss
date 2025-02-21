@@ -1,8 +1,9 @@
 .expense-list{
-  width: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   margin: 0 auto;
-  background-color: cadetblue;
-  padding: 10px 12px;
+  background-color: whitesmoke;
 
   &__header{
     width: 100%;
